@@ -7,6 +7,15 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
+<!-- Tabs -->
+<div class="w-full flex justify-center bg-white border-b">
+  <button id="tab-resume" class="px-6 py-3 font-semibold border-b-2 border-blue-600 text-blue-600 focus:outline-none" onclick="showTab('resume')">Resume</button>
+  <button id="tab-help" class="px-6 py-3 font-semibold border-b-2 border-transparent text-gray-600 hover:text-blue-600 focus:outline-none" onclick="showTab('help')">I can help you with</button>
+</div>
+
+<!-- Tab Content -->
+<div id="content-resume">
+
 <div class="flex">
   <!-- Sidebar Menu -->
   <div>
@@ -249,5 +258,30 @@
     </section>
   </div>
 </div>
+</div>
+<div id="content-help" class="hidden px-8 py-12">
+  <h2 class="text-2xl font-bold mb-4">Some of the many ways I can contribute to an organization or project</h2>
+  <ul class="list-disc ml-6 text-lg">
+    <li>People manangement and project leadership</li>
+    <li>Pipeline setup, automated testing</li>
+    <li>Code reviews, Git</li>
+    <li>Architecture and project analysis</li>
+  </ul>
+</div>
+
+<script>
+  function showTab(tab) {
+    document.getElementById('content-resume').classList.toggle('hidden', tab !== 'resume');
+    document.getElementById('content-help').classList.toggle('hidden', tab !== 'help');
+    document.getElementById('tab-resume').classList.toggle('border-blue-600', tab === 'resume');
+    document.getElementById('tab-resume').classList.toggle('text-blue-600', tab === 'resume');
+    document.getElementById('tab-resume').classList.toggle('border-transparent', tab !== 'resume');
+    document.getElementById('tab-resume').classList.toggle('text-gray-600', tab !== 'resume');
+    document.getElementById('tab-help').classList.toggle('border-blue-600', tab === 'help');
+    document.getElementById('tab-help').classList.toggle('text-blue-600', tab === 'help');
+    document.getElementById('tab-help').classList.toggle('border-transparent', tab !== 'help');
+    document.getElementById('tab-help').classList.toggle('text-gray-600', tab !== 'help');
+  }
+</script>
 </body>
 </html>
