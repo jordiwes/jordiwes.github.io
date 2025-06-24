@@ -18,7 +18,7 @@
 
 <div class="flex">
   <!-- Sidebar Menu -->
-  <div>
+  <div class="hidden md:flex">
     <nav class="flex flex-col bg-sky-800 w-64 h-full px-4 tex-gray-900 border border-sky-800">
       <div class="flex flex-wrap mt-8">
         <div class="w-1/2">
@@ -121,6 +121,7 @@
     </nav>
   </div>
 
+
   <!-- Main Content -->
   <div class="flex-1 px-6 py-12">
     <header class="text-center mb-8">
@@ -133,12 +134,12 @@
     </header>
 
     <section id="summary" class="mb-10">
-      <h2 class="text-2xl font-semibold border-b pb-1 mb-4">Summary</h2>
-      <p>Experienced Senior Technical Lead and Consultant with 20+ years in software development, specializing in API design and cloud deployment, with deep expertise in PHP and Python. Proven track record of leading cross-functional teams, delivering robust and scalable solutions, and mentoring engineers to success. Seeking a Software Development Manager position to leverage both technical expertise and leadership experience in driving high-performing teams and delivering reliable software that meets business and customer needs.</p>
+      <h2 class="text-2xl font-semibold border-b-4 border-b-sky-800 pb-1 mb-4">Summary</h2>
+      <p>Experienced Senior Technical Lead and Consultant with 20+ years in software development, specializing in API design and cloud deployment, with deep expertise in PHP and Python. Proven track record of leading teams, delivering robust and scalable solutions, and mentoring engineers. Seeking a Software Development Manager position to leverage both technical expertise and leadership experience in driving high-performing teams and delivering reliable software.</p>
     </section>
 
     <section id="experience" class="mb-10">
-      <h2 class="text-2xl font-semibold border-b pb-1 mb-4">Experience</h2>
+      <h2 class="text-2xl font-semibold border-b-4 border-b-sky-800 pb-1 mb-4">Experience</h2>
       <div class="space-y-6">
         <div>
           <h3 class="font-bold">Senior Software Engineer – Roave <span class="text-sm font-normal text-gray-500">(04/2023–Present, Remote)</span></h3>
@@ -181,7 +182,7 @@
       </div>
     </section>
     <section id="projects" class="mb-10">
-      <h2 class="text-2xl font-semibold border-b pb-1 mb-4">Projects</h2>
+      <h2 class="text-2xl font-semibold border-b-4 border-b-sky-800 pb-1 mb-4">Projects</h2>
       <div class="space-y-6 text-sm">
         <div>
           <h3 class="font-bold">Aerospace Payment Processing API</h3>
@@ -234,7 +235,7 @@
 
 
     <section id="skills" class="mb-10">
-      <h2 class="text-2xl font-semibold border-b pb-1 mb-4">Skills</h2>
+      <h2 class="text-2xl font-semibold border-b-4 border-b-sky-800 pb-1 mb-4">Skills</h2>
       <div class="grid grid-cols-2 text-sm gap-y-1">
         <span>Leadership</span><span>PHP</span>
         <span>Python</span><span>Docker</span>
@@ -246,11 +247,11 @@
       </div>
     </section>
     <section id="education" class="mb-10">
-      <h2 class="text-2xl font-semibold border-b pb-1 mb-4">Education</h2>
+      <h2 class="text-2xl font-semibold border-b-4 border-b-sky-800 pb-1 mb-4">Education</h2>
       <p class="text-sm">Bachelor of Science, Computer Science – Software Engineering Option<br />University of Victoria (1998–2002)</p>
     </section>
     <section id="certifications" class="mb-10">
-      <h2 class="text-2xl font-semibold border-b pb-1 mb-4">Certifications</h2>
+      <h2 class="text-2xl font-semibold border-b-4 border-b-sky-800 pb-1 mb-4">Certifications</h2>
       <ul class="list-disc ml-5 text-sm">
         <li>IBM Champion 2019–2022</li>
         <li>Zend Framework 2 Certified Architect – Zend Technologies</li>
@@ -260,12 +261,14 @@
 </div>
 </div>
 <div id="content-help" class="hidden px-8 py-12">
-  <h2 class="text-2xl font-bold mb-4">Some of the many ways I can contribute to an organization or project</h2>
+  <h2 class="text-2xl font-bold mb-4 border-b-4 border-b-sky-800">Some of the many ways I can contribute to an organization or project</h2>
   <ul class="list-disc ml-6 text-lg">
     <li>People manangement and project leadership</li>
     <li>Pipeline setup, automated testing</li>
     <li>Code reviews, Git</li>
     <li>Architecture and project analysis</li>
+    <li>Troubleshooting, problem-solving</li>
+    <li>Mentoring and training</li>
   </ul>
 </div>
 
@@ -282,6 +285,7 @@
     document.getElementById('tab-help').classList.toggle('border-transparent', tab !== 'help');
     document.getElementById('tab-help').classList.toggle('text-gray-600', tab !== 'help');
   }
+
 </script>
 </body>
 </html>
