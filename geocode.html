@@ -188,8 +188,6 @@
     </div>
 
     <script>
-        const API_KEY = 'AIzaSyDkd7caiNOjXztCl8ZFY-HoeI7MfJJUI7Y';
-
         async function geocodeAddress() {
             const address = document.getElementById('address').value.trim();
             const resultsDiv = document.getElementById('results');
@@ -210,26 +208,32 @@
             geocodeBtn.textContent = 'Geocoding...';
 
             try {
-                const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${API_KEY}`;
-                const response = await fetch(url);
+                // Using Nominatim (OpenStreetMap) - free, no API key required
+                const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(address)}&format=json&limit=1`;
+                const response = await fetch(url, {
+                    headers: {
+                        'User-Agent': 'FriendsMapGeocoder/1.0'
+                    }
+                });
                 const data = await response.json();
 
-                if (data.status === 'OK' && data.results.length > 0) {
-                    const result = data.results[0];
-                    const location = result.geometry.location;
+                if (data.length > 0) {
+                    const result = data[0];
+                    const lat = parseFloat(result.lat);
+                    const lon = parseFloat(result.lon);
 
                     // Display results
-                    document.getElementById('formatted-address').textContent = result.formatted_address;
-                    document.getElementById('latitude').textContent = location.lat;
-                    document.getElementById('longitude').textContent = location.lng;
+                    document.getElementById('formatted-address').textContent = result.display_name;
+                    document.getElementById('latitude').textContent = lat;
+                    document.getElementById('longitude').textContent = lon;
 
                     // Create CSV format (assuming Name column needs to be filled in)
-                    const csvLine = `[Name Here],${location.lat},${location.lng}`;
+                    const csvLine = `[Name Here],${lat},${lon}`;
                     document.getElementById('csv-format').textContent = csvLine;
 
                     resultsDiv.classList.add('show');
                 } else {
-                    showError(`Geocoding failed: ${data.status}. ${data.error_message || 'Please check the address and try again.'}`);
+                    showError('No results found for this address. Please check the address and try again.');
                 }
             } catch (error) {
                 showError(`Error: ${error.message}`);
